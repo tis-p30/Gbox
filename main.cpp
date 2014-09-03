@@ -5,14 +5,15 @@
 
 
 #include <QApplication>
-#include "wndmain.h"
+
+#include "scene/render/render.h"
 
 // Main function
 int main(int argc, char *argv[])
 {
   QApplication a(argc, argv);
-  WndMain w;
-  w.show();
-  
+  gbox::render Rnd;
+  Rnd.show();
+
   return a.exec();
 }

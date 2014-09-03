@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,9 +12,8 @@ TARGET = Gbox
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        wndmain.cpp
+SOURCES += main.cpp \
+    scene/render/render.cpp
 
-HEADERS  += wndmain.h
-
-FORMS    += wndmain.ui
+HEADERS  += \
+    scene/render/render.h
