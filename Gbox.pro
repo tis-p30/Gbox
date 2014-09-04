@@ -13,7 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    scene/render/render.cpp
+    scene/render/render.cpp \
+    scene/scene.cpp
 
 HEADERS  += \
-    scene/render/render.h
+    scene/render/render.h \
+    scene/scene.h
+ LIBS += -lGLU

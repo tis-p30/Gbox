@@ -6,14 +6,14 @@
 
 #include <QApplication>
 
-#include "scene/render/render.h"
+#include "scene/scene.h"
 
 // Main function
 int main(int argc, char *argv[])
 {
   QApplication a(argc, argv);
-  gbox::render Rnd;
-  Rnd.show();
+  gbox::scene Scn;
+  Scn.show();
 
   return a.exec();
 }
