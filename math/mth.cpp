@@ -17,9 +17,13 @@ mth::Vec::Vec(TypeUse NewX, TypeUse NewY, TypeUse NewZ) :
 }
 
 // Vector copying constructor
-mth::Vec::Vec(Vec &SrcVec) :
+mth::Vec::Vec(const Vec &SrcVec) :
   X(SrcVec.X), Y(SrcVec.Y), Z(SrcVec.Z)
 {
   ;
 }
 
+TypeUse mth::Vec::operator[](int Ind) const
+{
+  return *(&X + Ind);
+}

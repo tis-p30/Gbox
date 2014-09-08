@@ -26,7 +26,8 @@ namespace mth
     // Default constructor
     Vec(TypeUse NewX = 0, TypeUse NewY = 0, TypeUse NewZ = 0);
     // Copying constructor
-    Vec(Vec &SrcVec);
+    Vec(const Vec &SrcVec);
+    TypeUse operator[](int Ind) const;
   };
 }
 

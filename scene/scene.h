@@ -7,10 +7,13 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include <vector>
 #include <QTimer>
 
 #include "../def.h"
+
 #include "render/render.h"
+#include "render/prim.h"
 
 namespace gbox
 {
@@ -19,16 +22,35 @@ namespace gbox
     Q_OBJECT
   private:
     QTimer *timer; // Main updater timer
+  public:
+    // Default unit
+    class UnitDef
+    {
+    public:
+      // default unit destructor
+      virtual ~UnitDef();
+      // unit default response function
+      virtual void response();
+      // unit default drawing function
+      virtual void render();
+    };
+  private:
+    // Array of units
+    std::vector<UnitDef *> units;
 
   public:
     // default constructor
     explicit Scene(QWidget *parent = 0);
     // default destructor
     ~Scene();
-
-  public Q_SLOTS:
+  public slots:
     // Update scene function
     void update();
+    // drawing all units function
+    void render();
+  public:
+    // Adding new unit to scene
+    Scene & operator<<(UnitDef *NewUnit);
   }; // end of 'scene' class
 } // end of 'gbox' namespace
 
