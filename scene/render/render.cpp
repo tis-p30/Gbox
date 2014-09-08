@@ -11,17 +11,17 @@
 #include "render.h"
 
 // render class constructor
-gbox::render::render(QWidget *Parent) : QGLWidget(Parent)
+gbox::Render::Render(QWidget *WidgParent) : QGLWidget(WidgParent)
 {
 }
 
 // default render destructor
-gbox::render::~render()
+gbox::Render::~Render()
 {
 }
 
 // revirtualized init OpenGL function
-void gbox::render::initializeGL()
+void gbox::Render::initializeGL()
 {
   initializeGLFunctions();
   glClearColor(0.3, 0.5, 0.7, 1);
@@ -30,7 +30,7 @@ void gbox::render::initializeGL()
 }
 
 // revirualized resizing GL function
-void gbox::render::resizeGL(int w, int h)
+void gbox::Render::resizeGL(int w, int h)
 {
   glPixelZoom(1, -1);
   glViewport(0, 0, w, h);
@@ -42,7 +42,7 @@ void gbox::render::resizeGL(int w, int h)
 }
 
 // revirtualized paint OpenGL function
-void gbox::render::paintGL()
+void gbox::Render::paintGL()
 {
   static double x = 0.3;
   glClear(GL_COLOR_BUFFER_BIT);

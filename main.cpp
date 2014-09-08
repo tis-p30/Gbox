@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
   QApplication a(argc, argv);
-  gbox::scene Scn;
+  gbox::Scene Scn;
   Scn.show();
 
   return a.exec();

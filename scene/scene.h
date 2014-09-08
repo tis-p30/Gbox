@@ -8,25 +8,27 @@
 #define SCENE_H
 
 #include <QTimer>
+
+#include "../def.h"
 #include "render/render.h"
 
 namespace gbox
 {
-  class scene : public render
+  class Scene : public Render
   {
     Q_OBJECT
   private:
-    QTimer *Timer; // Main updater timer
+    QTimer *timer; // Main updater timer
 
   public:
     // default constructor
-    explicit scene(QWidget *parent = 0);
+    explicit Scene(QWidget *parent = 0);
     // default destructor
-    ~scene();
+    ~Scene();
 
   public Q_SLOTS:
     // Update scene function
-    void Update();
+    void update();
   }; // end of 'scene' class
 } // end of 'gbox' namespace
 

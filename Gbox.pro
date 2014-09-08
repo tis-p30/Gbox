@@ -14,9 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     scene/render/render.cpp \
-    scene/scene.cpp
+    scene/scene.cpp \
+    math/mth.cpp
 
 HEADERS  += \
     scene/render/render.h \
-    scene/scene.h
+    scene/scene.h \
+    math/mth.h \
+    def.h
  LIBS += -lGLU
