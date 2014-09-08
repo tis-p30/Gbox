@@ -14,7 +14,7 @@
 namespace gbox
 {
   // Rendering scene class
-  class render : public QGLWidget, QGLFunctions
+  class Render : public QGLWidget, QGLFunctions
   {
   private:
     // OpenGL revirtualize functions:
@@ -24,9 +24,9 @@ namespace gbox
 
   public:
     // Default constructor
-    explicit render(QWidget *Parent = 0);
+    explicit Render(QWidget *Parent = 0);
     // class destructor
-    ~render();
+    ~Render();
   }; // end of 'render' class
 } // end of 'gbox' namespace
 #endif // RENDER_H

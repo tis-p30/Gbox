@@ -5,26 +5,25 @@
 
 #include "scene.h"
 
-gbox::scene::scene(QWidget *parent) :
-  render(parent)
+gbox::Scene::Scene(QWidget *QWidgParent) :
+  Render(QWidgParent)
 {
-  Timer = new QTimer(this);
+  timer = new QTimer(this);
 
-  Timer->setInterval(30);
-  connect(Timer, SIGNAL(timeout()), this, SLOT(Update()));
-  // connect(Timer, SIGNAL(timeout()), this, SLOT(updateGL()));
-  Timer->start();
+  timer->setInterval(30);
+  connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+  timer->start();
 }
 
 // default scene destructor
-gbox::scene::~scene()
+gbox::Scene::~Scene()
 {
-  Timer->stop();
-  delete Timer;
+  timer->stop();
+  delete timer;
 }
 
 // Scene update function
-void gbox::scene::Update()
+void gbox::Scene::update()
 {
   updateGL();
 }
