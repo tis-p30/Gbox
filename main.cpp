@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
   gbox::Scene Scn;
   Scn.show();
 
+  /*
   Scn << new gbox::units::Triangle(gbox::GVec(0, 0, 0),
                                    gbox::GVec(0, 1, 1),
                                    gbox::GVec(0, 2, 1),
@@ -28,7 +29,8 @@ int main(int argc, char *argv[])
   Scn << new gbox::units::Triangle(gbox::GVec(0, 0, 0),
                                    gbox::GVec(0, -1, 1),
                                    gbox::GVec(0, -2, 1));
-
+  */
+  Scn << new gbox::units::Sphere(gbox::GVec(0, 0, 0), 2, 8);
 
   return a.exec();
 }

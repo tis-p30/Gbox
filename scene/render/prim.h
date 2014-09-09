@@ -30,7 +30,7 @@ namespace gbox
         color;     // Vertex color
 
       // Default constructor
-      Vertex(const GVec &NewPos, const GVec &NewColor = GVec());
+      Vertex(const GVec &NewPos = GVec(), const GVec &NewColor = GVec());
       // Copying constructor
       Vertex(const Vertex &SrcVert);
     };

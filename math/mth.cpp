@@ -23,7 +23,22 @@ mth::Vec::Vec(const Vec &SrcVec) :
   ;
 }
 
+
+// Getting vector coords function
 TypeUse mth::Vec::operator[](int Ind) const
 {
   return *(&X + Ind);
 }
+
+// Vec + Vec function
+mth::Vec mth::Vec::operator+ (const Vec &Vec1) const
+{
+  return Vec(X + Vec1[0], Y + Vec1[1], Z + Vec1[2]);
+}
+
+// Vec * Num function
+mth::Vec mth::Vec::operator* (const TypeUse &Num) const
+{
+  return Vec(X * Num, Y * Num, Z * Num);
+}
+

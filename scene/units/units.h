@@ -12,6 +12,7 @@
 
 // Including all objects
 #include "base/triangle.h"
+#include "base/sphere.h"
 
 namespace gbox
 {
@@ -19,11 +20,11 @@ namespace gbox
   namespace units
   {
     // simple units
-    // class Triangle;
-    // class sphere;
+    class Triangle;
+    class Sphere;
 
     // hard units
-    // class planet;
+    // class Planet;
 
   } // end of 'units' namespace
 }
