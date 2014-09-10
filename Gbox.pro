@@ -18,7 +18,8 @@ SOURCES += main.cpp \
     math/mth.cpp \
     scene/render/prim.cpp \
     scene/units/base/triangle.cpp \
-    scene/units/base/sphere.cpp
+    scene/units/base/sphere.cpp \
+    scene/input/input.cpp
 
 HEADERS  += \
     scene/render/render.h \
@@ -28,5 +29,6 @@ HEADERS  += \
     scene/render/prim.h \
     scene/units/units.h \
     scene/units/base/triangle.h \
-    scene/units/base/sphere.h
+    scene/units/base/sphere.h \
+    scene/input/input.h
  LIBS += -lGLU

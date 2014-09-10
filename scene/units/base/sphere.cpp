@@ -35,6 +35,10 @@ gbox::units::Sphere::Sphere(const GVec &NewPos, const TypeUse NewRad, const int 
       unitPrim.addVertex(new Prim::Vertex(ArrVert[(y * NewPntCnt + x)]));
       unitPrim.addVertex(new Prim::Vertex(ArrVert[(y * NewPntCnt + x + 1)]));
       unitPrim.addVertex(new Prim::Vertex(ArrVert[((y + 1) * NewPntCnt + x)]));
+
+      unitPrim.addVertex(new Prim::Vertex(ArrVert[(y * NewPntCnt + x + 1)]));
+      unitPrim.addVertex(new Prim::Vertex(ArrVert[((y + 1) * NewPntCnt + x + 1)]));
+      unitPrim.addVertex(new Prim::Vertex(ArrVert[((y + 1) * NewPntCnt + x)]));
     }
 }
 

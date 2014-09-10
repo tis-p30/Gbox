@@ -15,9 +15,11 @@
 #include "render/render.h"
 #include "render/prim.h"
 
+#include "input/input.h"
+
 namespace gbox
 {
-  class Scene : public Render
+  class Scene : public Render, public Input
   {
     Q_OBJECT
   private:
@@ -37,17 +39,22 @@ namespace gbox
   private:
     // Array of units
     std::vector<UnitDef *> units;
-
   public:
     // default constructor
     explicit Scene(QWidget *parent = 0);
     // default destructor
     ~Scene();
+
   public slots:
     // Update scene function
     void update();
     // drawing all units function
     void render();
+    // event keyboard capture by key
+    // void keyPressEvent(QKeyEvent *KbdKey);
+    // event keyboard capture by event
+    bool event(QEvent *Evnt);
+
   public:
     // Adding new unit to scene
     Scene & operator<<(UnitDef *NewUnit);

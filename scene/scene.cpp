@@ -31,6 +31,9 @@ void gbox::Scene::update()
   for (std::vector<UnitDef *>::iterator It = units.begin(); It != units.end(); ++It)
     (*It)->response();
 
+  if (KbdAlt && KbdStateNow['X'])
+    exit(0);
+
   updateGL();
 }
 
@@ -59,6 +62,13 @@ void gbox::Scene::render()
     glVertex3d(0, 0, 0);
     glVertex3d(0, 0, 5);
   glEnd();
+}
+
+// event keyboard capture
+bool gbox::Scene::event(QEvent *Evnt)
+{
+  Input::updateEvent(Evnt);
+  return QWidget::event(Evnt);
 }
 
 /*

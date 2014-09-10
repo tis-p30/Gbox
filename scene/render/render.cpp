@@ -26,6 +26,7 @@ void gbox::Render::initializeGL()
   initializeGLFunctions();
   glClearColor(0.3, 0.5, 0.7, 1);
 
+  glEnable(GL_DEPTH_TEST);
   // glEnable(GL_CULL_FACE);
 }
 
@@ -45,11 +46,13 @@ void gbox::Render::resizeGL(int w, int h)
 void gbox::Render::paintGL()
 {
   static double x = 0.3;
-  glClear(GL_COLOR_BUFFER_BIT);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glLoadIdentity();
   gluLookAt(5, 5, 5, 0, 0, 0, 0, 1, 0);
   glRotatef(x += 2, 0, 1.0, 0);
 
   render();
+  // TextD
+  ;
   swapBuffers();
 }

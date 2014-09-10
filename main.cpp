@@ -30,7 +30,14 @@ int main(int argc, char *argv[])
                                    gbox::GVec(0, -1, 1),
                                    gbox::GVec(0, -2, 1));
   */
-  Scn << new gbox::units::Sphere(gbox::GVec(0, 0, 0), 2, 8);
+  Scn << new gbox::units::Sphere(gbox::GVec(0, 0, 0), 1, 32,
+                                 gbox::GVec(0.7, 0.7, 0.0));
+
+  Scn << new gbox::units::Sphere(gbox::GVec(0, 2, 2), 0.5, 32,
+                                 gbox::GVec(0.3, 0.3, 0.3));
+
+  Scn << new gbox::units::Sphere(gbox::GVec(-2, -1, 2), 0.4, 32,
+                                 gbox::GVec(0.1, 0.6, 0.7));
 
   return a.exec();
 }
