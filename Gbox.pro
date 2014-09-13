@@ -15,11 +15,20 @@ TEMPLATE = app
 SOURCES += main.cpp \
     scene/render/render.cpp \
     scene/scene.cpp \
-    math/mth.cpp
+    math/mth.cpp \
+    scene/render/prim.cpp \
+    scene/units/base/triangle.cpp \
+    scene/units/base/sphere.cpp \
+    scene/input/input.cpp
 
 HEADERS  += \
     scene/render/render.h \
     scene/scene.h \
     math/mth.h \
-    def.h
+    def.h \
+    scene/render/prim.h \
+    scene/units/units.h \
+    scene/units/base/triangle.h \
+    scene/units/base/sphere.h \
+    scene/input/input.h
  LIBS += -lGLU
