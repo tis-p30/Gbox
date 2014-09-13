@@ -21,8 +21,7 @@ namespace gbox
       Prim unitPrim;
     public:
       // Default triangle constructor
-      Triangle(const GVec &NewPnt0, const GVec &NewPnt1, const GVec &NewPnt2,
-               const GVec &NewCol = GVec(1.0, 1.0, 1.0));
+      Triangle(const GVec &NewPnt0, const GVec &NewPnt1, const GVec &NewPnt2);
       // Default destructor
       ~Triangle();
 

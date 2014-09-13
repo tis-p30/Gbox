@@ -10,6 +10,10 @@
 #include "scene/units/units.h"
 
 
+// Redefinition types and main variables to simple use
+typedef gbox::Prim::Mtl Mtl;
+Mtl &DefMtl = Mtl::MtlDef;
+
 // Main function
 int main(int argc, char *argv[])
 {
@@ -17,27 +21,12 @@ int main(int argc, char *argv[])
   gbox::Scene Scn;
   Scn.show();
 
-  /*
-  Scn << new gbox::units::Triangle(gbox::GVec(0, 0, 0),
-                                   gbox::GVec(0, 1, 1),
-                                   gbox::GVec(0, 2, 1),
-                                   gbox::GVec(0.6, 0.6, 0.6));
-  Scn << new gbox::units::Triangle(gbox::GVec(0, 0, 0),
-                                   gbox::GVec(0, -1,-1),
-                                   gbox::GVec(0, 2, -1),
-                                   gbox::GVec(0.5, 0.6, 0.8));
-  Scn << new gbox::units::Triangle(gbox::GVec(0, 0, 0),
-                                   gbox::GVec(0, -1, 1),
-                                   gbox::GVec(0, -2, 1));
-  */
-  Scn << new gbox::units::Sphere(gbox::GVec(0, 0, 0), 1, 32,
-                                 gbox::GVec(0.7, 0.7, 0.0));
-
-  Scn << new gbox::units::Sphere(gbox::GVec(0, 2, 2), 0.5, 32,
-                                 gbox::GVec(0.3, 0.3, 0.3));
-
-  Scn << new gbox::units::Sphere(gbox::GVec(-2, -1, 2), 0.4, 32,
-                                 gbox::GVec(0.1, 0.6, 0.7));
+  DefMtl = Mtl(gbox::GVec(0.2, 0.3, 0.5));
+  Scn << new gbox::units::Sphere(gbox::GVec(0, 0, 0), 1, 32);
+  DefMtl = Mtl(gbox::GVec(0.5, 0.3, 0.2));
+  Scn << new gbox::units::Sphere(gbox::GVec(0, 2, 2), 0.5, 32);
+  DefMtl = Mtl(gbox::GVec(0.5, 0.8, 0.8));
+  Scn << new gbox::units::Sphere(gbox::GVec(-2, -1, 2), 0.4, 32);
 
   return a.exec();
 }
