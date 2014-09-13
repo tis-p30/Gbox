@@ -21,16 +21,31 @@ namespace gbox
   class Prim
   {
   public:
+    // material class
+    class Mtl
+    {
+    private:
+      gbox::GVec color;
+    public:
+      static Mtl MtlDef; // Default material
+
+      // Default constructor
+      Mtl(gbox::GVec NewColor = gbox::GVec());
+      // Copying contructor
+      Mtl(const Mtl &SrcMtl);
+      // Getting color function
+      gbox::GVec GetColor();
+    };
+
     // Vertex class declaration
     class Vertex
     {
     public:
-      gbox::GVec
-        pos,       // Vertex position
-        color;     // Vertex color
+      gbox::GVec pos;       // Vertex position
+      Mtl mtl;              // Vertex material data
 
       // Default constructor
-      Vertex(const GVec &NewPos = GVec(), const GVec &NewColor = GVec());
+      Vertex(const GVec &NewPos = GVec());
       // Copying constructor
       Vertex(const Vertex &SrcVert);
     };

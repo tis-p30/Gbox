@@ -7,12 +7,11 @@
 #include "triangle.h"
 
 // Default triangle constructor
-gbox::units::Triangle::Triangle(const GVec &NewPnt0, const GVec &NewPnt1, const GVec &NewPnt2,
-                                const GVec &NewCol)
+gbox::units::Triangle::Triangle(const GVec &NewPnt0, const GVec &NewPnt1, const GVec &NewPnt2)
 {
-  unitPrim.addVertex(new Prim::Vertex(NewPnt0, NewCol));
-  unitPrim.addVertex(new Prim::Vertex(NewPnt1, NewCol));
-  unitPrim.addVertex(new Prim::Vertex(NewPnt2, NewCol));
+  unitPrim.addVertex(new Prim::Vertex(NewPnt0));
+  unitPrim.addVertex(new Prim::Vertex(NewPnt1));
+  unitPrim.addVertex(new Prim::Vertex(NewPnt2));
 }
 
 // Default destructor

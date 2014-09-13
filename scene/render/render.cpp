@@ -48,7 +48,12 @@ void gbox::Render::paintGL()
   static double x = 0.3;
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glLoadIdentity();
-  gluLookAt(5, 5, 5, 0, 0, 0, 0, 1, 0);
+  // gluLookAt(5, 5, 5, 0, 0, 0, 0, 1, 0);
+  GVec Pos = Camera::GetvPos(), LookAt = Camera::GetLookAtPos(), Up = Camera::GetvUp();
+
+  gluLookAt(Pos[0], Pos[1], Pos[2],
+            LookAt[0], LookAt[1], LookAt[2],
+            Up[0], Up[1], Up[2]);
   glRotatef(x += 2, 0, 1.0, 0);
 
   render();

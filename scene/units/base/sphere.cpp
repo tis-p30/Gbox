@@ -10,8 +10,7 @@
 #include "sphere.h"
 
 // Default triangle constructor
-gbox::units::Sphere::Sphere(const GVec &NewPos, const TypeUse NewRad, const int NewPntCnt,
-                            const GVec &NewCol)
+gbox::units::Sphere::Sphere(const GVec &NewPos, const TypeUse NewRad, const int NewPntCnt)
 {
   int x, y;
 
@@ -26,7 +25,7 @@ gbox::units::Sphere::Sphere(const GVec &NewPos, const TypeUse NewRad, const int 
         gbox::GVec Norm = gbox::GVec(sin(alpha) * sin(beta),
                                      cos(alpha),
                                      sin(alpha) * cos(beta));
-        ArrVert[y * NewPntCnt + x] = Prim::Vertex(NewPos + Norm * NewRad, NewCol);
+        ArrVert[y * NewPntCnt + x] = Prim::Vertex(NewPos + Norm * NewRad);
       }
 
   for (x = 0; x < NewPntCnt - 1; x++)
