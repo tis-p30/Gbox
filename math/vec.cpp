@@ -1,12 +1,12 @@
 /* Gravity newton box project.
  * Authors: tis-p30, kbsx32;
- * File purpose: Math functions implementation file.
+ * File purpose: Math vectors functions implementation file.
  */
 
 #include "mth.h"
 
 /*
- *  Vector functions implementation
+ *  Matrix functions implementation
  */
 
 // vector default constructor
@@ -40,7 +40,7 @@ TypeUse &mth::Vec::operator[](int Ind)
 }
 
 // Vec + Vec function
-mth::Vec mth::Vec::operator+ (const Vec &Vec1) const
+mth::Vec mth::Vec::operator+(const Vec &Vec1) const
 {
   return Vec(X + Vec1[0], Y + Vec1[1], Z + Vec1[2]);
 }
@@ -55,19 +55,19 @@ mth::Vec &mth::Vec::operator+=(const mth::Vec &Vec1)
 }
 
 // Vec - Vec function
-mth::Vec mth::Vec::operator- (const Vec &Vec1) const
+mth::Vec mth::Vec::operator-(const Vec &Vec1) const
 {
   return Vec(X - Vec1[0], Y - Vec1[1], Z - Vec1[2]);
 }
 
 // Vec * Num function
-mth::Vec mth::Vec::operator* (const TypeUse &Num) const
+mth::Vec mth::Vec::operator*(const TypeUse &Num) const
 {
   return Vec(X * Num, Y * Num, Z * Num);
 }
 
 // Vector mult of Vecs function
-mth::Vec mth::Vec::operator% (const Vec &Vec1) const
+mth::Vec mth::Vec::operator%(const Vec &Vec1) const
 {
   return Vec(Y * Vec1[2] - Y * Vec1[1],
              Z * Vec1[0] - X * Vec1[2],
@@ -75,7 +75,7 @@ mth::Vec mth::Vec::operator% (const Vec &Vec1) const
 }
 
 // Getting vector length
-TypeUse mth::Vec::Length() const
+TypeUse mth::Vec::length() const
 {
   TypeUse Len = X * X + Y * Y + Z * Z;
   if (Len != 0 && Len != 1)
@@ -84,7 +84,7 @@ TypeUse mth::Vec::Length() const
 }
 
 // Normilize current vector
-mth::Vec &mth::Vec::SetNormalize()
+mth::Vec &mth::Vec::setNormalize()
 {
   TypeUse LenSqr = X * X + Y * Y + Z * Z;
   if (LenSqr != 0 && LenSqr != 1)
@@ -98,7 +98,7 @@ mth::Vec &mth::Vec::SetNormalize()
 }
 
 // Get normalized vector
-mth::Vec mth::Vec::GetNormalized() const
+mth::Vec mth::Vec::getNormalized() const
 {
   TypeUse LenSqr = X * X + Y * Y + Z * Z;
   if (LenSqr != 0 && LenSqr != 1)
@@ -111,7 +111,7 @@ mth::Vec mth::Vec::GetNormalized() const
 }
 
 // Vector rotate By axis-X function
-mth::Vec mth::Vec::RotateByX(const TypeUse AngX) const
+mth::Vec mth::Vec::rotateByX(const TypeUse AngX) const
 {
   TypeUse cosa = cos(AngX), sina = sin(AngX);
 
@@ -121,7 +121,7 @@ mth::Vec mth::Vec::RotateByX(const TypeUse AngX) const
 }
 
 // Vector rotate By axis-Y function
-mth::Vec mth::Vec::RotateByY(const TypeUse AngX) const
+mth::Vec mth::Vec::rotateByY(const TypeUse AngX) const
 {
   TypeUse cosa = cos(AngX), sina = sin(AngX);
 
@@ -131,7 +131,7 @@ mth::Vec mth::Vec::RotateByY(const TypeUse AngX) const
 }
 
 // Vector rotate By axis-Z function
-mth::Vec mth::Vec::RotateByZ(const TypeUse AngX) const
+mth::Vec mth::Vec::rotateByZ(const TypeUse AngX) const
 {
   TypeUse cosa = cos(AngX), sina = sin(AngX);
 

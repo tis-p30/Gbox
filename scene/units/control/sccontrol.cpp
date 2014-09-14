@@ -31,33 +31,33 @@ void gbox::units::UnitScControl::response(gbox::Scene &SrcSc)
 
   // Move by Direction vector
   if (SrcSc.Input::KbdStateNow['W'])
-    SrcSc.Camera::MoveByDir(DShift);
+    SrcSc.Camera::moveByDir(DShift);
   if (SrcSc.Input::KbdStateNow['S'])
-    SrcSc.Camera::MoveByDir(-DShift);
+    SrcSc.Camera::moveByDir(-DShift);
 
   // Move by Right vector
   if (SrcSc.Input::KbdStateNow['A'])
-    SrcSc.Camera::MoveByRight(-DShift);
+    SrcSc.Camera::moveByRight(-DShift);
   if (SrcSc.Input::KbdStateNow['D'])
-    SrcSc.Camera::MoveByRight(DShift);
+    SrcSc.Camera::moveByRight(DShift);
 
   // Rotate by Up vector
   if (SrcSc.Input::KbdStateNow['Q'])
-    SrcSc.Camera::RotateByUp(ShiftRot);
+    SrcSc.Camera::rotateByUp(ShiftRot);
   if (SrcSc.Input::KbdStateNow['E'])
-    SrcSc.Camera::RotateByUp(-ShiftRot);
+    SrcSc.Camera::rotateByUp(-ShiftRot);
 
   // Rotate by Right vector
   if (SrcSc.Input::KbdStateNow['I'])
-    SrcSc.Camera::RotateByRight(ShiftRot);
+    SrcSc.Camera::rotateByRight(ShiftRot);
   if (SrcSc.Input::KbdStateNow['K'])
-    SrcSc.Camera::RotateByRight(-ShiftRot);
+    SrcSc.Camera::rotateByRight(-ShiftRot);
 
   // Rotate by Dir vector
   if (SrcSc.Input::KbdStateNow['G'])
-    SrcSc.Camera::RotateByDir(ShiftRot);
+    SrcSc.Camera::rotateByDir(ShiftRot);
   if (SrcSc.Input::KbdStateNow['H'])
-    SrcSc.Camera::RotateByDir(-ShiftRot);
+    SrcSc.Camera::rotateByDir(-ShiftRot);
 
 }
 
