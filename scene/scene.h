@@ -24,6 +24,7 @@ namespace gbox
     Q_OBJECT
   private:
     QTimer *timer; // Main updater timer
+    // static
   public:
     // Default unit
     class UnitDef
@@ -50,8 +51,6 @@ namespace gbox
     void update();
     // drawing all units function
     void render();
-    // event keyboard capture by key
-    // void keyPressEvent(QKeyEvent *KbdKey);
     // event keyboard capture by event
     bool event(QEvent *Evnt);
 
