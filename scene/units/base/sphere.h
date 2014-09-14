@@ -25,7 +25,7 @@ namespace gbox
       ~Sphere();
 
       // Revirtualizing Unit default functions
-      void render();
+      void render(Scene &SrcSc);
     };
   }
 }

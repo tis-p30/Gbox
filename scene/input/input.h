@@ -29,6 +29,8 @@ namespace gbox
     explicit Input();
     // update input system state by new event
     void updateEvent(QEvent *Evnt);
+    // update all input Last Data
+    void updateKbdStateLast();
   }; // end of 'input' class
 } // end of 'gbox' namespace
 

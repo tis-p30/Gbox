@@ -38,7 +38,7 @@ namespace mth
     // Getting vector coords
     TypeUse operator[](int Ind) const;
     // Getting vector coords reference
-    TypeUse &operator[](int Ind);
+    TypeUse & operator[](int Ind);
 
     // Vec + Vec function
     Vec operator+(const Vec &Vec1) const;
@@ -55,14 +55,14 @@ namespace mth
     Vec operator%(const Vec &SrcVec) const;
 
     // Vector rotate By axis-X function
-    Vec RotateByX(const TypeUse AngX);
+    Vec RotateByX(const TypeUse AngX) const;
     // Vector rotate By axis-Y function
-    Vec RotateByY(const TypeUse AngX);
+    Vec RotateByY(const TypeUse AngX) const;
     // Vector rotate By axis-Z function
-    Vec RotateByZ(const TypeUse AngX);
+    Vec RotateByZ(const TypeUse AngX) const;
 
     // Getting vector length
-    TypeUse Length();
+    TypeUse Length() const;
 
     // Normilize current vector
     Vec &SetNormalize();

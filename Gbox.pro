@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     scene/units/base/triangle.cpp \
     scene/units/base/sphere.cpp \
     scene/input/input.cpp \
-    scene/render/camera.cpp
+    scene/render/camera.cpp \
+    scene/units/control/sccontrol.cpp
 
 HEADERS  += \
     scene/render/render.h \
@@ -32,5 +33,8 @@ HEADERS  += \
     scene/units/base/triangle.h \
     scene/units/base/sphere.h \
     scene/input/input.h \
-    scene/render/camera.h
+    scene/render/camera.h \
+    scene/units/control/sccontrol.h
  LIBS += -lGLU
+
+QMAKE_CXXFLAGS += -Wno-unused-parameter

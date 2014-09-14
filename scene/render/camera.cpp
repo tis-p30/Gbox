@@ -9,9 +9,10 @@
 gbox::Camera::Camera(const GVec &NewPos,
                      const GVec &NewUp,
                      const GVec &LookAtPos) :
-  vPos(NewPos), vUp(NewUp),
-  vDir(LookAtPos - vPos), vRight(vDir % vUp)
+  vPos(NewPos), vUp(NewUp.GetNormalized()),
+  vDir((LookAtPos - vPos).GetNormalized()), vRight(vDir % vUp)
 {
+  // vUp = NewUp.GetNormalized();
 }
 
 // Getting camera 'look at' vector function
@@ -56,8 +57,8 @@ gbox::Camera & gbox::Camera::MoveByUp(const TypeUse Dt)
 // Rotate by Direction vector
 gbox::Camera & gbox::Camera::RotateByDir(const TypeUse Ang)
 {
-  vRight.RotateByZ(Ang);
-  vUp.RotateByZ(Ang);
+  vRight = vRight.RotateByZ(Ang);
+  vUp = vUp.RotateByZ(Ang);
 
   return *this;
 }
@@ -65,18 +66,17 @@ gbox::Camera & gbox::Camera::RotateByDir(const TypeUse Ang)
 // Rotate by Right vector
 gbox::Camera & gbox::Camera::RotateByRight(const TypeUse Ang)
 {
-  vUp.RotateByX(Ang);
-  vDir.RotateByX(Ang);
-
+  vUp = vUp.RotateByX(Ang);
+  // vDir = vDir.RotateByZ(Ang);
+  vRight =vRight.RotateByX(Ang);
   return *this;
 }
 
 // Rotate by Up vector
 gbox::Camera & gbox::Camera::RotateByUp(const TypeUse Ang)
 {
-  vRight.RotateByY(Ang);
-  vDir.RotateByY(Ang);
-
+  vRight = vRight.RotateByY(Ang);
+  vDir = vDir.RotateByY(Ang);
   return *this;
 }
 

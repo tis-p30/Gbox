@@ -20,7 +20,7 @@ gbox::units::Triangle::~Triangle()
 }
 
 // Revirtualizing Unit default function drawing
-void gbox::units::Triangle::render()
+void gbox::units::Triangle::render(Scene &SrcSc)
 {
   unitPrim.render();
 }

@@ -75,25 +75,43 @@ mth::Vec mth::Vec::operator% (const Vec &Vec1) const
 }
 
 // Getting vector length
-TypeUse mth::Vec::Length()
+TypeUse mth::Vec::Length() const
 {
-  return 0;
+  TypeUse Len = X * X + Y * Y + Z * Z;
+  if (Len != 0 && Len != 1)
+    return sqrt(Len);
+  return Len;
 }
 
 // Normilize current vector
 mth::Vec &mth::Vec::SetNormalize()
 {
+  TypeUse LenSqr = X * X + Y * Y + Z * Z;
+  if (LenSqr != 0 && LenSqr != 1)
+  {
+    TypeUse Len = sqrt(LenSqr);
+    X = X / Len;
+    Y = Y / Len;
+    Z = Z / Len;
+  }
   return *this;
 }
 
 // Get normalized vector
 mth::Vec mth::Vec::GetNormalized() const
 {
-  return mth::Vec();
+  TypeUse LenSqr = X * X + Y * Y + Z * Z;
+  if (LenSqr != 0 && LenSqr != 1)
+  {
+    TypeUse Len = sqrt(LenSqr);
+    return mth::Vec(X / Len, Y / Len, Z / Len);
+  }
+
+  return mth::Vec(X, Y, Z);
 }
 
 // Vector rotate By axis-X function
-mth::Vec mth::Vec::RotateByX(const TypeUse AngX)
+mth::Vec mth::Vec::RotateByX(const TypeUse AngX) const
 {
   TypeUse cosa = cos(AngX), sina = sin(AngX);
 
@@ -103,7 +121,7 @@ mth::Vec mth::Vec::RotateByX(const TypeUse AngX)
 }
 
 // Vector rotate By axis-Y function
-mth::Vec mth::Vec::RotateByY(const TypeUse AngX)
+mth::Vec mth::Vec::RotateByY(const TypeUse AngX) const
 {
   TypeUse cosa = cos(AngX), sina = sin(AngX);
 
@@ -111,8 +129,9 @@ mth::Vec mth::Vec::RotateByY(const TypeUse AngX)
              Y,
              Z * cosa - X * sina);
 }
+
 // Vector rotate By axis-Z function
-mth::Vec mth::Vec::RotateByZ(const TypeUse AngX)
+mth::Vec mth::Vec::RotateByZ(const TypeUse AngX) const
 {
   TypeUse cosa = cos(AngX), sina = sin(AngX);
 

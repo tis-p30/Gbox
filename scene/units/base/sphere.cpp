@@ -47,7 +47,7 @@ gbox::units::Sphere::~Sphere()
 }
 
 // Revirtualizing Unit default functions
-void gbox::units::Sphere::render()
+void gbox::units::Sphere::render(Scene &SrcSc)
 {
   unitPrim.render();
 }
