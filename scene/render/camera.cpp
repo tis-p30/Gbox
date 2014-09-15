@@ -57,8 +57,9 @@ gbox::Camera & gbox::Camera::moveByUp(const TypeUse Dt)
 // Rotate by Direction vector
 gbox::Camera & gbox::Camera::rotateByDir(const TypeUse Ang)
 {
-  vRight = vRight.rotateByZ(Ang);
-  vUp = vUp.rotateByZ(Ang);
+  GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang);
+  vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]);
+  vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]);
   // vDir = vDir.RotateByZ(Ang);
   return *this;
 }
@@ -66,8 +67,10 @@ gbox::Camera & gbox::Camera::rotateByDir(const TypeUse Ang)
 // Rotate by Right vector
 gbox::Camera & gbox::Camera::rotateByRight(const TypeUse Ang)
 {
-  vUp = vUp.rotateByX(Ang);
-  vDir = vDir.rotateByX(Ang);
+  GMatr MatrRes = buildCamMatrix() * GMatr::rotateX(Ang);
+  // GMatr MatrRes = GMatr::rotateX(Ang) * buildCamMatrix();
+  vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]);
+  vDir = GVec(MatrRes[0][0], MatrRes[1][0], MatrRes[2][0]); // vDir.rotateByX(Ang);
   // vRight =vRight.RotateByX(Ang);
   return *this;
 }
@@ -75,8 +78,9 @@ gbox::Camera & gbox::Camera::rotateByRight(const TypeUse Ang)
 // Rotate by Up vector
 gbox::Camera & gbox::Camera::rotateByUp(const TypeUse Ang)
 {
-  vRight = vRight.rotateByY(Ang);
-  vDir = vDir.rotateByY(Ang);
+  GMatr MatrRes = buildCamMatrix() *  GMatr::rotateY(Ang);
+  vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]);
+  vDir = -vUp % vRight;
   return *this;
 }
 

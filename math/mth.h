@@ -40,6 +40,10 @@ namespace mth
     // Getting vector coords reference
     TypeUse & operator[](int Ind);
 
+
+    // -Vec function
+    Vec operator-() const;
+
     // Vec + Vec function
     Vec operator+(const Vec &Vec1) const;
     // Vec - Vec function
@@ -81,7 +85,7 @@ namespace mth
             const TypeUse A20 = 0, const TypeUse A21 = 0, const TypeUse A22 = 1, const TypeUse A23 = 0,
             const TypeUse A30 = 0, const TypeUse A31 = 0, const TypeUse A32 = 0, const TypeUse A33 = 1);
     // Constructor by array
-    Matr4x4(const TypeUse *Ar);
+    Matr4x4(const TypeUse *NewAr);
     // Constructor by vectors
     Matr4x4(const Vec &V0, const Vec &V1, const Vec &V2);
     // Copying constructor
@@ -89,8 +93,18 @@ namespace mth
 
     // Getting array member function
     TypeUse * operator[](int Index);
+    // Getting array member const function
+    const TypeUse * operator[](int Index) const;
+
     // Matr0(this) * Matr1 function
-    Matr4x4 operator*(const Matr4x4 &Matr1);
+    Matr4x4 operator*(const Matr4x4 &Matr1) const;
+
+    // rotate matrix by axis-x
+    static Matr4x4 rotateX(const TypeUse Angle);
+    // rotate matrix by axis-y
+    static Matr4x4 rotateY(const TypeUse Angle);
+    // rotate matrix by axis-z
+    static Matr4x4 rotateZ(const TypeUse Angle);
   }; // End of 'matr4x4' class
 }
 

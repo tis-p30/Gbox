@@ -39,6 +39,12 @@ TypeUse &mth::Vec::operator[](int Ind)
   return *(&X + Ind);
 }
 
+// -Vec function
+mth::Vec mth::Vec::operator-() const
+{
+  return Vec(-X, -Y, -Z);
+}
+
 // Vec + Vec function
 mth::Vec mth::Vec::operator+(const Vec &Vec1) const
 {
