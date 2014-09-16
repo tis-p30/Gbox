@@ -18,7 +18,7 @@ namespace gbox
     GVec vPos, vUp, vDir, vRight; // Camera vectors
   public:
     // Default constructor
-    Camera(const GVec &NewPos = GVec(5.0, 5.0, 5.0),
+    Camera(const GVec &NewPos = GVec(30.0, 30.0, 30.0),
            const GVec &NewUp = GVec(0.0, 1.0, 0.0),
            const GVec &LookAtPos = GVec(0.0, 0.0, 0.0));
 

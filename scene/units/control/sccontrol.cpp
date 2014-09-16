@@ -55,9 +55,9 @@ void gbox::units::UnitScControl::response(gbox::Scene &SrcSc)
 
   // Rotate by Dir vector
   if (SrcSc.Input::KbdStateNow['G'])
-    SrcSc.Camera::rotateByDir(ShiftRot);
-  if (SrcSc.Input::KbdStateNow['H'])
     SrcSc.Camera::rotateByDir(-ShiftRot);
+  if (SrcSc.Input::KbdStateNow['H'])
+    SrcSc.Camera::rotateByDir(ShiftRot);
 
 }
 
@@ -69,15 +69,15 @@ void gbox::units::UnitScControl::render(gbox::Scene &SrcSc)
     glBegin(GL_LINES);
       glColor3d(1, 0, 0);
       glVertex3d(0, 0, 0);
-      glVertex3d(5, 0, 0);
+      glVertex4d(1, 0, 0, 0);
 
       glColor3d(0, 1, 0);
       glVertex3d(0, 0, 0);
-      glVertex3d(0, 5, 0);
+      glVertex4d(0, 1, 0, 0);
 
       glColor3d(0, 0, 1);
       glVertex3d(0, 0, 0);
-      glVertex3d(0, 0, 5);
+      glVertex4d(0, 0, 1, 0);
     glEnd();
   }
 }

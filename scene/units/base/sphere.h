@@ -20,7 +20,7 @@ namespace gbox
       Prim unitPrim;
     public:
       // Default triangle constructor
-      Sphere(const GVec &NewPos, const TypeUse NewRad, const int NewPntCnt);
+      Sphere(const GVec &NewPos, const TypeUse NewRad = 1, const int NewPntCnt = 16);
       // Default destructor
       ~Sphere();
 

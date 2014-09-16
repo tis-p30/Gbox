@@ -10,7 +10,7 @@ gbox::Camera::Camera(const GVec &NewPos,
                      const GVec &NewUp,
                      const GVec &LookAtPos) :
   vPos(NewPos), vUp(NewUp.getNormalized()),
-  vDir((LookAtPos - vPos).getNormalized()), vRight(vDir % vUp)
+  vDir((LookAtPos - vPos).getNormalized()), vRight((vDir % vUp).getNormalized())
 {
   // vUp = NewUp.GetNormalized();
 }
@@ -57,9 +57,11 @@ gbox::Camera & gbox::Camera::moveByUp(const TypeUse Dt)
 // Rotate by Direction vector
 gbox::Camera & gbox::Camera::rotateByDir(const TypeUse Ang)
 {
-  GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang);
-  vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]);
-  vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]);
+  // GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang);
+  vRight = vRight.rotateByZ(Ang).getNormalized();
+  // vRight = gbox::GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]).getNormalized();
+  vUp = vUp.rotateByZ(Ang).getNormalized();
+  // vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]).getNormalized();
   // vDir = vDir.RotateByZ(Ang);
   return *this;
 }
@@ -69,7 +71,9 @@ gbox::Camera & gbox::Camera::rotateByRight(const TypeUse Ang)
 {
   GMatr MatrRes = buildCamMatrix() * GMatr::rotateX(Ang);
   // GMatr MatrRes = GMatr::rotateX(Ang) * buildCamMatrix();
+  // vUp = vUp.rotateByX(Ang).getNormalized();
   vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]);
+  // vDir = vDir.rotateByX(Ang).getNormalized();
   vDir = GVec(MatrRes[0][0], MatrRes[1][0], MatrRes[2][0]); // vDir.rotateByX(Ang);
   // vRight =vRight.RotateByX(Ang);
   return *this;
@@ -78,9 +82,11 @@ gbox::Camera & gbox::Camera::rotateByRight(const TypeUse Ang)
 // Rotate by Up vector
 gbox::Camera & gbox::Camera::rotateByUp(const TypeUse Ang)
 {
-  GMatr MatrRes = buildCamMatrix() *  GMatr::rotateY(Ang);
-  vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]);
-  vDir = -vUp % vRight;
+  // GMatr MatrRes = buildCamMatrix() * GMatr::rotateY(Ang);
+  vRight = vRight.rotateByY(Ang).getNormalized();
+  // vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]);
+  vDir = vDir.rotateByY(Ang).getNormalized();
+  // vDir = -vUp % vRight;
   return *this;
 }
 
