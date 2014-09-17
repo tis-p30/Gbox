@@ -8,6 +8,8 @@
 #ifndef MTH_H
 #define MTH_H
 
+#include <cmath>
+
 // Redifinition main types
 typedef float FLT;
 typedef double DBL;
@@ -17,6 +19,8 @@ typedef double TypeUse;
 
 namespace mth
 {
+  // math pi constant
+  const TypeUse pi = 3.1415;
 
   // Vector class
   class Vec
@@ -24,26 +28,47 @@ namespace mth
   private:
     TypeUse X, Y, Z;
   public:
-    // Default constructor
-    Vec(TypeUse NewX = 0, TypeUse NewY = 0, TypeUse NewZ = 0);
+    // Default constructor by one number
+    Vec(TypeUse NewCoord = 0);
+    // constructor by 3-coords
+    Vec(TypeUse NewX, TypeUse NewY, TypeUse NewZ);
+
     // Copying constructor
-    Vec(Vec &SrcVec);
-    ~Vec() {;}
+   Vec(const Vec &SrcVec);
+    // Getting vector coords
+    TypeUse operator[](int Ind) const;
+    // Getting vector coords reference
+    TypeUse &operator[](int Ind);
 
-    Vec operator+ (Vec& other);
-    Vec operator* (TypeUse number);
-    Vec operator& (const Vec& other);
-    Vec operator% (const Vec& other);
+    // Vec + Vec function
+    Vec operator+(const Vec &Vec1) const;
+    // Vec - Vec function
+    Vec operator-(const Vec &Vec1) const;
 
+    // Vec += Vec function
+    Vec &operator+=(const Vec &Vec1);
 
-    inline TypeUse getXCoord() {return this->X;}
-    inline TypeUse getYCoord() {return this->Y;}
-    inline TypeUse getZCoord() {return this->Z;}
+    // Vec * Num function
+    Vec operator*(const TypeUse &Num) const;
 
-   };
-  //TypeUse euler(Vec& accel, Vec position, Vec  );
-  //TypeUse rk(TypeUse& accel, TypeUse x);
+    // Vector mult of Vecs function
+    Vec operator%(const Vec &SrcVec) const;
 
- }
+    // Vector rotate By axis-X function
+    Vec RotateByX(const TypeUse AngX);
+    // Vector rotate By axis-Y function
+    Vec RotateByY(const TypeUse AngX);
+    // Vector rotate By axis-Z function
+    Vec RotateByZ(const TypeUse AngX);
+
+    // Getting vector length
+    TypeUse Length();
+
+    // Normilize current vector
+    Vec &SetNormalize();
+    // Get normalized vector
+    Vec GetNormalized() const;
+  }; // End of 'Vec' class
+}
 
 #endif // MTH_H

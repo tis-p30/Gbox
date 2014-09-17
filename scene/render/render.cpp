@@ -26,7 +26,8 @@ void gbox::Render::initializeGL()
   initializeGLFunctions();
   glClearColor(0.3, 0.5, 0.7, 1);
 
-  glEnable(GL_CULL_FACE);
+  glEnable(GL_DEPTH_TEST);
+  // glEnable(GL_CULL_FACE);
 }
 
 // revirualized resizing GL function
@@ -45,38 +46,18 @@ void gbox::Render::resizeGL(int w, int h)
 void gbox::Render::paintGL()
 {
   static double x = 0.3;
-  glClear(GL_COLOR_BUFFER_BIT);
-
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glLoadIdentity();
-  gluLookAt(5, 5, 5, 0, 0, 0, 0, 1, 0);
+  // gluLookAt(5, 5, 5, 0, 0, 0, 0, 1, 0);
+  GVec Pos = Camera::GetvPos(), LookAt = Camera::GetLookAtPos(), Up = Camera::GetvUp();
 
-  glRotatef(x += 0.3, 0, 1.0, 0);
-  glBegin(GL_LINES);
-    glColor3d(1, 0, 0);
-    glVertex3d(0, 0, 0);
-    glVertex3d(5, 0, 0);
+  gluLookAt(Pos[0], Pos[1], Pos[2],
+            LookAt[0], LookAt[1], LookAt[2],
+            Up[0], Up[1], Up[2]);
+  glRotatef(x += 2, 0, 1.0, 0);
 
-    glColor3d(0, 1, 0);
-    glVertex3d(0, 0, 0);
-    glVertex3d(0, 5, 0);
-
-    glColor3d(0, 0, 1);
-    glVertex3d(0, 0, 0);
-    glVertex3d(0, 0, 5);
-  glEnd();
-
-  // Drawing some cube lines. Not all because i want to sleep
-  glBegin(GL_LINES);
-    glVertex3d(-1, -1, -1);
-    glVertex3d(-1, -1, 1);
-    glVertex3d(1, -1, 1);
-    glVertex3d(1, -1, -1);
-
-    glVertex3d(-1, 1, -1);
-    glVertex3d(-1, 1, 1);
-    glVertex3d(1, 1, 1);
-    glVertex3d(1, 1, -1);
-  glEnd();
-
+  render();
+  // TextD
+  ;
   swapBuffers();
 }

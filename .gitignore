@@ -11,3 +11,6 @@
 *.lai
 *.la
 *.a
+*.pro.user.e0abb11.2.6pre1
+#Project files
+*.pro.*
