@@ -40,7 +40,7 @@ void gbox::units::UnitScControl::response(gbox::Scene &SrcSc)
     SrcSc.Camera::moveByRight(-DShift);
   if (SrcSc.Input::KbdStateNow['D'])
     SrcSc.Camera::moveByRight(DShift);
-
+  /*
   // Rotate by Up vector
   if (SrcSc.Input::KbdStateNow['Q'])
     SrcSc.Camera::rotateByUp(ShiftRot);
@@ -58,7 +58,7 @@ void gbox::units::UnitScControl::response(gbox::Scene &SrcSc)
     SrcSc.Camera::rotateByDir(-ShiftRot);
   if (SrcSc.Input::KbdStateNow['H'])
     SrcSc.Camera::rotateByDir(ShiftRot);
-
+  */
 }
 
 // unit drawing function
