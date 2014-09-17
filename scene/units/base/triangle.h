@@ -26,7 +26,7 @@ namespace gbox
       ~Triangle();
 
       // Revirtualizing Unit default functions
-      void render();
+      void render(Scene &SrcSc);
     };
   }
 }

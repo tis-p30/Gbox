@@ -29,11 +29,9 @@ gbox::Scene::~Scene()
 void gbox::Scene::update()
 {
   for (std::vector<UnitDef *>::iterator It = units.begin(); It != units.end(); ++It)
-    (*It)->response();
+    (*It)->response(*this);
 
-  if (KbdAlt && KbdStateNow['X'])
-    exit(0);
-
+  Input::updateKbdStateLast();
   updateGL();
 }
 
@@ -47,21 +45,7 @@ gbox::Scene & gbox::Scene::operator<<(UnitDef *NewUnit)
 void gbox::Scene::render()
 {
   for (std::vector<UnitDef *>::iterator It = units.begin(); It != units.end(); ++It)
-    (*It)->render();
-
-  glBegin(GL_LINES);
-    glColor3d(1, 0, 0);
-    glVertex3d(0, 0, 0);
-    glVertex3d(5, 0, 0);
-
-    glColor3d(0, 1, 0);
-    glVertex3d(0, 0, 0);
-    glVertex3d(0, 5, 0);
-
-    glColor3d(0, 0, 1);
-    glVertex3d(0, 0, 0);
-    glVertex3d(0, 0, 5);
-  glEnd();
+    (*It)->render(*this);
 }
 
 // event keyboard capture
@@ -76,11 +60,11 @@ bool gbox::Scene::event(QEvent *Evnt)
  */
 
 // unit default response function
-void gbox::Scene::UnitDef::response()
+void gbox::Scene::UnitDef::response(gbox::Scene &SrcSc)
 {
 }
 // unit default drawing function
-void gbox::Scene::UnitDef::render()
+void gbox::Scene::UnitDef::render(gbox::Scene &SrcSc)
 {
 }
 
