@@ -3,7 +3,7 @@ Gbox
 
 Newton gravity box.
 
-Gbox is a open source project about planets gravity interaction. Gbox writed fully on qt 4.8.
+Gbox is a open source project about planets gravity interaction applying to Newton's law of gravity. Gbox writed fully on qt 4.8.
 
 ===About===
 
