@@ -8,18 +8,28 @@
 /*
  *  Vector functions implementation
  */
-
+using namespace mth;
 // vector default constructor
-mth::Vec::Vec(TypeUse NewX, TypeUse NewY, TypeUse NewZ) :
+Vec::Vec(TypeUse NewX, TypeUse NewY, TypeUse NewZ) :
   X(NewX), Y(NewY), Z(NewZ)
 {
   ;
 }
 
 // Vector copying constructor
-mth::Vec::Vec(Vec &SrcVec) :
+Vec::Vec(Vec &SrcVec) :
   X(SrcVec.X), Y(SrcVec.Y), Z(SrcVec.Z)
 {
   ;
 }
 
+Vec Vec::operator+ (Vec& other)
+{
+  Vec v(X + other.X, Y + other.Y, Z + other.Z);
+  return v;
+}
+
+void test()
+{
+  Vec v(1,1,1);
+}
