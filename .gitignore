@@ -12,9 +12,6 @@
 *.la
 *.a
 *.pro.user.e0abb11.2.6pre1
-<<<<<<< HEAD
+
 #Project files
 *.pro.*
-=======
-*.pro.user
->>>>>>> b0f6aa22f036bd2668b898bc42800250d9f04539
