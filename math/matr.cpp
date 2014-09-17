@@ -29,15 +29,15 @@ mth::Matr4x4::Matr4x4(const TypeUse *NewAr)
 }
 
 // Constructor by vectors
-mth::Matr4x4::Matr4x4(const mth::Vec &V0, const mth::Vec &V1, const mth::Vec &V2)
+mth::Matr4x4::Matr4x4(const mth::Vec3 &V0, const mth::Vec3 &V1, const mth::Vec3 &V2)
 {
-  const mth::Vec *VAr[3] = {&V0, &V1, &V2};
+  const mth::Vec3 *VAr[3] = {&V0, &V1, &V2};
   for (int i = 0; i < 3; i++)
     for (int j = 0; j < 3; j++)
       Ar[i][j] = (*VAr[i])[j];
 
-  Ar[0][3] = Ar[1][3] =
-  Ar[2][3] = Ar[3][3] = 0;
+  Ar[0][3] = Ar[1][3] = Ar[2][3] = 0;
+  Ar[3][3] = 1;
 }
 
 // Copying constructor
@@ -105,4 +105,61 @@ mth::Matr4x4 mth::Matr4x4::rotateZ(const TypeUse Angle)
                      0,     0,     0,     1);
 }
 
+// Vec3(4) * Matr function
+mth::Vec3 mth::Matr4x4::operator*(const mth::Vec3 &SrcVec) const
+{
+  Vec3 ResVec(0, 0, 0);
+  TypeUse Vc[] = {SrcVec[0], SrcVec[1], SrcVec[2], 1};
+  for (int y = 0; y < 3; y++)
+    for (int i = 0; i < 4; i++)
+      ResVec[y] += Ar[y][i] * Vc[i];
+  return ResVec;
+}
+
+// Matr * Num function
+mth::Matr4x4 mth::Matr4x4::operator*(const TypeUse Num) const
+{
+  Matr4x4 MatrRes;
+  for (int y = 0; y < 4; y++)
+    for (int x = 0; x < 4; x++)
+      MatrRes[y][x] = Ar[y][x] * Num;
+  return MatrRes;
+}
+
+// Getting matrix 3x3 determinator function
+TypeUse mth::Matr4x4::matr3x3Determ(const TypeUse Ar00, const TypeUse Ar01, const TypeUse Ar02,
+                                    const TypeUse Ar10, const TypeUse Ar11, const TypeUse Ar12,
+                                    const TypeUse Ar20, const TypeUse Ar21, const TypeUse Ar22)
+{
+  return Ar00 * (Ar11 * Ar22 - Ar12 * Ar21 ) -
+         Ar01 * (Ar10 * Ar22 - Ar12 * Ar20 ) +
+         Ar02 * (Ar10 * Ar21 - Ar11 * Ar20 );
+}
+
+// Getting matrix 4x4 determinator function
+TypeUse mth::Matr4x4::determ() const
+{
+  return Ar[0][0] * matr3x3Determ(Ar[1][1], Ar[1][2], Ar[1][3],    // 1 colomumn
+                                  Ar[2][1], Ar[2][2], Ar[2][3],
+                                  Ar[3][1], Ar[3][2], Ar[3][3]) -
+         Ar[0][0] * matr3x3Determ(Ar[1][0], Ar[1][2], Ar[1][3],    // 2 colomumn
+                                  Ar[2][0], Ar[2][2], Ar[2][3],
+                                  Ar[3][0], Ar[3][2], Ar[3][3]) +
+         Ar[0][0] * matr3x3Determ(Ar[1][0], Ar[1][1], Ar[1][3],    // 3 colomumn
+                                  Ar[2][0], Ar[2][1], Ar[2][3],
+                                  Ar[3][0], Ar[3][1], Ar[3][3]) +
+         Ar[0][0] * matr3x3Determ(Ar[1][0], Ar[1][1], Ar[1][2],    // 4 colomumn
+                                  Ar[2][0], Ar[2][1], Ar[2][2],
+                                  Ar[3][0], Ar[3][1], Ar[3][2]);
+}
+
+// Getting transposed matrix
+mth::Matr4x4 mth::Matr4x4::transpose() const
+{
+  Matr4x4 MatrRes;
+  for (int y = 0; y < 4; y++)
+    for (int x = 0; x < 4; x++)
+      MatrRes[y][x] = Ar[x][y];
+  return MatrRes;
+}
 

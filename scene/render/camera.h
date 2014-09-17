@@ -45,6 +45,8 @@ namespace gbox
 
     // Building camera matrix function
     GMatr buildCamMatrix();
+    // Building camera inverse matrix function
+    GMatr buildCamMatrixInv();
   }; // end of 'Camera' class
 }
 

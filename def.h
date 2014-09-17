@@ -15,7 +15,7 @@ typedef double TypeUse;
 namespace gbox
 {
   // Redefinition global classes
-  typedef mth::Vec GVec;
+  typedef mth::Vec3 GVec;
   typedef mth::Matr4x4 GMatr;
 }
 

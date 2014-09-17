@@ -10,49 +10,49 @@
  */
 
 // vector default constructor
-mth::Vec::Vec(TypeUse NewX, TypeUse NewY, TypeUse NewZ) :
+mth::Vec3::Vec3(TypeUse NewX, TypeUse NewY, TypeUse NewZ) :
   X(NewX), Y(NewY), Z(NewZ)
 {
 }
 
 // Default constructor by one number
-mth::Vec::Vec(TypeUse NewCoord) :
+mth::Vec3::Vec3(TypeUse NewCoord) :
   X(NewCoord), Y(NewCoord), Z(NewCoord)
 {
 }
 
 // Vector copying constructor
-mth::Vec::Vec(const Vec &SrcVec) :
+mth::Vec3::Vec3(const Vec3 &SrcVec) :
   X(SrcVec.X), Y(SrcVec.Y), Z(SrcVec.Z)
 {
 }
 
 // Getting vector coords function
-TypeUse mth::Vec::operator[](int Ind) const
+TypeUse mth::Vec3::operator[](int Ind) const
 {
   return *(&X + Ind);
 }
 
 // Getting vector coords function reference
-TypeUse &mth::Vec::operator[](int Ind)
+TypeUse &mth::Vec3::operator[](int Ind)
 {
   return *(&X + Ind);
 }
 
 // -Vec function
-mth::Vec mth::Vec::operator-() const
+mth::Vec3 mth::Vec3::operator-() const
 {
-  return Vec(-X, -Y, -Z);
+  return Vec3(-X, -Y, -Z);
 }
 
 // Vec + Vec function
-mth::Vec mth::Vec::operator+(const Vec &Vec1) const
+mth::Vec3 mth::Vec3::operator+(const mth::Vec3 &Vec1) const
 {
-  return Vec(X + Vec1[0], Y + Vec1[1], Z + Vec1[2]);
+  return Vec3(X + Vec1[0], Y + Vec1[1], Z + Vec1[2]);
 }
 
 // Vec += Vec function
-mth::Vec &mth::Vec::operator+=(const mth::Vec &Vec1)
+mth::Vec3 & mth::Vec3::operator+=(const mth::Vec3 &Vec1)
 {
   X += Vec1[0];
   Y += Vec1[1];
@@ -61,27 +61,27 @@ mth::Vec &mth::Vec::operator+=(const mth::Vec &Vec1)
 }
 
 // Vec - Vec function
-mth::Vec mth::Vec::operator-(const Vec &Vec1) const
+mth::Vec3 mth::Vec3::operator-(const mth::Vec3 &Vec1) const
 {
-  return Vec(X - Vec1[0], Y - Vec1[1], Z - Vec1[2]);
+  return Vec3(X - Vec1[0], Y - Vec1[1], Z - Vec1[2]);
 }
 
 // Vec * Num function
-mth::Vec mth::Vec::operator*(const TypeUse &Num) const
+mth::Vec3 mth::Vec3::operator*(const TypeUse &Num) const
 {
-  return Vec(X * Num, Y * Num, Z * Num);
+  return Vec3(X * Num, Y * Num, Z * Num);
 }
 
 // Vector mult of Vecs function
-mth::Vec mth::Vec::operator%(const Vec &Vec1) const
+mth::Vec3 mth::Vec3::operator%(const mth::Vec3 &Vec1) const
 {
-  return Vec(Y * Vec1[2] - Y * Vec1[1],
+  return Vec3(Y * Vec1[2] - Y * Vec1[1],
              Z * Vec1[0] - X * Vec1[2],
              X * Vec1[1] - Y * Vec1[0]);
 }
 
 // Getting vector length
-TypeUse mth::Vec::length() const
+TypeUse mth::Vec3::length() const
 {
   TypeUse Len = X * X + Y * Y + Z * Z;
   if (Len != 0 && Len != 1)
@@ -90,7 +90,7 @@ TypeUse mth::Vec::length() const
 }
 
 // Normilize current vector
-mth::Vec &mth::Vec::setNormalize()
+mth::Vec3 & mth::Vec3::setNormalize()
 {
   TypeUse LenSqr = X * X + Y * Y + Z * Z;
   if (LenSqr != 0 && LenSqr != 1)
@@ -104,44 +104,44 @@ mth::Vec &mth::Vec::setNormalize()
 }
 
 // Get normalized vector
-mth::Vec mth::Vec::getNormalized() const
+mth::Vec3 mth::Vec3::getNormalized() const
 {
   TypeUse LenSqr = X * X + Y * Y + Z * Z;
   if (LenSqr != 0 && LenSqr != 1)
   {
     TypeUse Len = sqrt(LenSqr);
-    return mth::Vec(X / Len, Y / Len, Z / Len);
+    return mth::Vec3(X / Len, Y / Len, Z / Len);
   }
 
-  return mth::Vec(X, Y, Z);
+  return mth::Vec3(X, Y, Z);
 }
 
 // Vector rotate By axis-X function
-mth::Vec mth::Vec::rotateByX(const TypeUse AngX) const
+mth::Vec3 mth::Vec3::rotateByX(const TypeUse AngX) const
 {
   TypeUse cosa = cos(AngX), sina = sin(AngX);
 
-  return Vec(X,
+  return Vec3(X,
              Y * cosa - Z * sina,
              Y * sina + Z * cosa);
 }
 
 // Vector rotate By axis-Y function
-mth::Vec mth::Vec::rotateByY(const TypeUse AngX) const
+mth::Vec3 mth::Vec3::rotateByY(const TypeUse AngX) const
 {
   TypeUse cosa = cos(AngX), sina = sin(AngX);
 
-  return Vec(X * cosa + Z * sina,
-             Y,
-             Z * cosa - X * sina);
+  return Vec3(X * cosa + Z * sina,
+              Y,
+              Z * cosa - X * sina);
 }
 
 // Vector rotate By axis-Z function
-mth::Vec mth::Vec::rotateByZ(const TypeUse AngX) const
+mth::Vec3 mth::Vec3::rotateByZ(const TypeUse AngX) const
 {
   TypeUse cosa = cos(AngX), sina = sin(AngX);
 
-  return Vec(X * cosa - Y * sina,
-             X * sina + Y * cosa,
-             Z);
+  return Vec3(X * cosa - Y * sina,
+              X * sina + Y * cosa,
+              Z);
 }

@@ -57,40 +57,48 @@ gbox::Camera & gbox::Camera::moveByUp(const TypeUse Dt)
 // Rotate by Direction vector
 gbox::Camera & gbox::Camera::rotateByDir(const TypeUse Ang)
 {
-  // GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang);
-  vRight = vRight.rotateByZ(Ang).getNormalized();
-  // vRight = gbox::GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]).getNormalized();
-  vUp = vUp.rotateByZ(Ang).getNormalized();
-  // vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]).getNormalized();
-  // vDir = vDir.RotateByZ(Ang);
+  GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang);
+  vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]).getNormalized();
+  vDir = GVec(MatrRes[0][0], MatrRes[1][0], MatrRes[2][0]).getNormalized();
+  vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]).getNormalized();
   return *this;
 }
 
 // Rotate by Right vector
 gbox::Camera & gbox::Camera::rotateByRight(const TypeUse Ang)
 {
-  GMatr MatrRes = buildCamMatrix() * GMatr::rotateX(Ang);
-  // GMatr MatrRes = GMatr::rotateX(Ang) * buildCamMatrix();
-  // vUp = vUp.rotateByX(Ang).getNormalized();
-  vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]);
-  // vDir = vDir.rotateByX(Ang).getNormalized();
-  vDir = GVec(MatrRes[0][0], MatrRes[1][0], MatrRes[2][0]); // vDir.rotateByX(Ang);
-  // vRight =vRight.RotateByX(Ang);
+  // GMatr MatrRes = buildCamMatrixInv() * GMatr::rotateZ(Ang) * buildCamMatrix();
+  GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang) * buildCamMatrixInv();
+  // GMatr Maaa = buildCamMatrix() * buildCamMatrixInv();
+  vRight = (MatrRes * vRight).getNormalized();
+  vDir = (MatrRes * vDir).getNormalized();
+  vUp = (MatrRes * vUp).getNormalized();
   return *this;
 }
 
 // Rotate by Up vector
 gbox::Camera & gbox::Camera::rotateByUp(const TypeUse Ang)
 {
-  // GMatr MatrRes = buildCamMatrix() * GMatr::rotateY(Ang);
-  vRight = vRight.rotateByY(Ang).getNormalized();
-  // vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]);
-  vDir = vDir.rotateByY(Ang).getNormalized();
-  // vDir = -vUp % vRight;
+  GMatr MatrRes = GMatr::rotateY(Ang) * buildCamMatrix();
+
+  vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]).getNormalized();
+  vDir = GVec(MatrRes[0][0], MatrRes[1][0], MatrRes[2][0]).getNormalized();
+  vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]).getNormalized();
   return *this;
 }
 
 gbox::GMatr gbox::Camera::buildCamMatrix()
 {
   return gbox::GMatr(vDir, vUp, vRight);
+  // return gbox::GMatr(vRight, vUp, vDir);
 }
+
+gbox::GMatr gbox::Camera::buildCamMatrixInv()
+{
+  return gbox::GMatr(vUp[1] * vRight[2] - vRight[1] * vUp[2], -vDir[1] * vRight[2] + vRight[1] * vDir[2],  vDir[1] * vUp[2] - vUp[1] * vDir[2], 0,
+                    -vUp[0] * vRight[2] + vRight[0] * vUp[2],  vDir[0] * vRight[2] - vRight[0] * vDir[2], -vDir[0] * vUp[2] + vUp[0] * vDir[0], 0,
+                     vUp[0] * vRight[1] - vRight[0] * vUp[1], -vDir[0] * vRight[1] + vRight[0] * vDir[1],  vDir[0] * vUp[1] - vUp[0] * vDir[1], 0,
+                     0, 0, 0, 1).transpose() * (1.0 / buildCamMatrix().determ());
+  // return gbox::GMatr(vRight, vUp, vDir);
+}
+
