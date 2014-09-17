@@ -33,9 +33,9 @@ namespace gbox
       // default unit destructor
       virtual ~UnitDef();
       // unit default response function
-      virtual void response();
+      virtual void response(Scene &SrcSc);
       // unit default drawing function
-      virtual void render();
+      virtual void render(Scene &SrcSc);
     };
   private:
     // Array of units

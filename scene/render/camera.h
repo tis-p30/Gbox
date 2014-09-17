@@ -18,30 +18,35 @@ namespace gbox
     GVec vPos, vUp, vDir, vRight; // Camera vectors
   public:
     // Default constructor
-    Camera(const GVec &NewPos = GVec(5.0, 5.0, 5.0),
+    Camera(const GVec &NewPos = GVec(30.0, 30.0, 30.0),
            const GVec &NewUp = GVec(0.0, 1.0, 0.0),
            const GVec &LookAtPos = GVec(0.0, 0.0, 0.0));
 
-    GVec GetLookAtPos() const;
-    GVec GetvPos() const;
-    GVec GetvUp() const;
+    GVec getLookAtPos() const;
+    GVec getvPos() const;
+    GVec getvUp() const;
     // Move camera actions
 
     // Move by Direction vector
-    Camera & MoveByDir(const TypeUse Dt);
+    Camera & moveByDir(const TypeUse Dt);
     // Move by Right vector
-    Camera & MoveByRight(const TypeUse Dt);
+    Camera & moveByRight(const TypeUse Dt);
     // Move by Up vector
-    Camera & MoveByUp(const TypeUse Dt);
+    Camera & moveByUp(const TypeUse Dt);
 
     // Rotate camera actions
 
     // Rotate by Direction vector
-    Camera & RotateByDir(const TypeUse Ang);
+    Camera & rotateByDir(const TypeUse Ang);
     // Rotate by Right vector
-    Camera & RotateByRight(const TypeUse Ang);
+    Camera & rotateByRight(const TypeUse Ang);
     // Rotate by Up vector
-    Camera & RotateByUp(const TypeUse Ang);
+    Camera & rotateByUp(const TypeUse Ang);
+
+    // Building camera matrix function
+    GMatr buildCamMatrix();
+    // Building camera inverse matrix function
+    GMatr buildCamMatrixInv();
   }; // end of 'Camera' class
 }
 

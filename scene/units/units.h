@@ -14,18 +14,6 @@
 #include "base/triangle.h"
 #include "base/sphere.h"
 
-namespace gbox
-{
-  // units namespace
-  namespace units
-  {
-    // simple units
-    class Triangle;
-    class Sphere;
+#include "control/sccontrol.h"
 
-    // hard units
-    // class Planet;
-
-  } // end of 'units' namespace
-}
 #endif // UNITS_H
