@@ -10,12 +10,9 @@
 
 #include <cmath>
 
-// Redifinition main types
-typedef float FLT;
-typedef double DBL;
+#include "mthdef.h"
 
-// Setting default type
-typedef double TypeUse;
+#include "numint.h"
 
 namespace mth
 {

@@ -68,7 +68,15 @@ gbox::Camera & gbox::Camera::rotateByDir(const TypeUse Ang)
 gbox::Camera & gbox::Camera::rotateByRight(const TypeUse Ang)
 {
   // GMatr MatrRes = buildCamMatrixInv() * GMatr::rotateZ(Ang) * buildCamMatrix();
-  GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang) * buildCamMatrixInv();
+  // GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang) * buildCamMatrixInv();
+  GMatr MatrRes = GMatr::rotateZ(Ang) * buildCamMatrix();
+
+  // Redifinition main types
+  typedef float FLT;
+  typedef double DBL;
+
+  // Setting default type
+  typedef double TypeUse;
   // GMatr Maaa = buildCamMatrix() * buildCamMatrixInv();
   vRight = (MatrRes * vRight).getNormalized();
   vDir = (MatrRes * vDir).getNormalized();
@@ -92,13 +100,3 @@ gbox::GMatr gbox::Camera::buildCamMatrix()
   return gbox::GMatr(vDir, vUp, vRight);
   // return gbox::GMatr(vRight, vUp, vDir);
 }
-
-gbox::GMatr gbox::Camera::buildCamMatrixInv()
-{
-  return gbox::GMatr(vUp[1] * vRight[2] - vRight[1] * vUp[2], -vDir[1] * vRight[2] + vRight[1] * vDir[2],  vDir[1] * vUp[2] - vUp[1] * vDir[2], 0,
-                    -vUp[0] * vRight[2] + vRight[0] * vUp[2],  vDir[0] * vRight[2] - vRight[0] * vDir[2], -vDir[0] * vUp[2] + vUp[0] * vDir[0], 0,
-                     vUp[0] * vRight[1] - vRight[0] * vUp[1], -vDir[0] * vRight[1] + vRight[0] * vDir[1],  vDir[0] * vUp[1] - vUp[0] * vDir[1], 0,
-                     0, 0, 0, 1).transpose() * (1.0 / buildCamMatrix().determ());
-  // return gbox::GMatr(vRight, vUp, vDir);
-}
-

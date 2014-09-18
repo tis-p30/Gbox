@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     scene/render/camera.cpp \
     scene/units/control/sccontrol.cpp \
     math/vec.cpp \
-    math/matr.cpp
+    math/matr.cpp \
+    math/numint.cpp
 
 HEADERS  += \
     scene/render/render.h \
@@ -35,7 +36,9 @@ HEADERS  += \
     scene/units/base/sphere.h \
     scene/input/input.h \
     scene/render/camera.h \
-    scene/units/control/sccontrol.h
+    scene/units/control/sccontrol.h \
+    math/numint.h \
+    math/mthdef.h
  LIBS += -lGLU
 
 QMAKE_CXXFLAGS += -Wno-unused-parameter

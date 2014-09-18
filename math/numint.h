@@ -7,8 +7,7 @@
  * Numerical integration functions implementation
  */
 
-
-#include "mth.h"
+#include "mthdef.h"
 
 namespace mth
 {
