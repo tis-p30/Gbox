@@ -1,7 +1,7 @@
 /* Gravity newton box project.
- *
- * Authors: kbsx32;
- * File purpose: Input capture functions implementation file.
+ * File purpose: Scene.
+ *               Input capture functions implementation.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #include "input.h"
@@ -67,4 +67,3 @@ void gbox::Input::updateKbdStateLast()
   for (int i = 0; i < KbdKeysCnt; i++)
     KbdStateLast[i] = KbdStateNow[i];
 }
-

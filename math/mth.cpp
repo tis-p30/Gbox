@@ -1,7 +1,7 @@
 /* Gravity newton box project.
- * Authors: tis-p30, kbsx32;
- * File purpose: Math global functions implementation file.
+ * File purpose: Math general functions implementation file.
+ * Authors: Tikhonenko Iliya (tis-p30) <iliya.t@mail.ru>,
+ *          Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #include "mth.h"
-

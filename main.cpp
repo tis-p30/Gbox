@@ -1,8 +1,8 @@
 /* Gravity newton box project.
- * Authors: tis-p30, kbsx32;
  * File purpose: Run file.
+ * Authors: Tikhonenko Iliya (tis-p30) <iliya.t@mail.ru>,
+ *          Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
-
 
 #include <QApplication>
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
   for (int i = 0; i < 20; i++)
   {
     DefMtl = Mtl(gbox::GVec((DBL)rand() / RAND_MAX, (DBL)rand() / RAND_MAX, (DBL)rand() / RAND_MAX));
-    Scn << new gbox::units::Sphere(gbox::GVec(rand() % 30, rand() % 30, rand() % 30), 1);
+    Scn << new gbox::units::Sphere(gbox::GVec(rand() % 30 - 15, rand() % 30 - 15, rand() % 30 - 15), 1);
   }
 
   DefMtl = Mtl(gbox::GVec(0.2, 0.3, 0.5));

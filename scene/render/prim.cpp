@@ -1,6 +1,7 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Render primitive class implementation file.
+ * File purpose: Render.
+ *               Render primitive class functions implementation.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #include "prim.h"
@@ -81,4 +82,3 @@ void gbox::Prim::render()
   }
   glEnd();
 }
-

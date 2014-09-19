@@ -1,6 +1,7 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Input capture header.
+ * File purpose: Scene.
+ *               Input capture header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #pragma once

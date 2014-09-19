@@ -1,6 +1,7 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Render camera class functions implementation.
+ * File purpose: Render.
+ *               Camera class functions implementation.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #include "camera.h"
@@ -12,7 +13,7 @@ gbox::Camera::Camera(const GVec &NewPos,
   vPos(NewPos), vUp(NewUp.getNormalized()),
   vDir((LookAtPos - vPos).getNormalized()), vRight((vDir % vUp).getNormalized())
 {
-  // vUp = NewUp.GetNormalized();
+  vUp = vRight % vDir;
 }
 
 // Getting camera 'look at' vector function
@@ -57,30 +58,22 @@ gbox::Camera & gbox::Camera::moveByUp(const TypeUse Dt)
 // Rotate by Direction vector
 gbox::Camera & gbox::Camera::rotateByDir(const TypeUse Ang)
 {
-  GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang);
-  vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]).getNormalized();
-  vDir = GVec(MatrRes[0][0], MatrRes[1][0], MatrRes[2][0]).getNormalized();
-  vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]).getNormalized();
+  GMatr MatrRes = GMatr::rotateZ(Ang) * buildCamMatrix();
+
+  vRight = GVec(MatrRes[0][0], MatrRes[0][1], MatrRes[0][2]);
+  vUp    = GVec(MatrRes[1][0], MatrRes[1][1], MatrRes[1][2]);
+  // vDir   = GVec(MatrRes[2][0], MatrRes[2][1], MatrRes[2][2]);
   return *this;
 }
 
 // Rotate by Right vector
 gbox::Camera & gbox::Camera::rotateByRight(const TypeUse Ang)
 {
-  // GMatr MatrRes = buildCamMatrixInv() * GMatr::rotateZ(Ang) * buildCamMatrix();
-  // GMatr MatrRes = buildCamMatrix() * GMatr::rotateZ(Ang) * buildCamMatrixInv();
-  GMatr MatrRes = GMatr::rotateZ(Ang) * buildCamMatrix();
+  GMatr MatrRes = GMatr::rotateX(Ang) * buildCamMatrix();
 
-  // Redifinition main types
-  typedef float FLT;
-  typedef double DBL;
-
-  // Setting default type
-  typedef double TypeUse;
-  // GMatr Maaa = buildCamMatrix() * buildCamMatrixInv();
-  vRight = (MatrRes * vRight).getNormalized();
-  vDir = (MatrRes * vDir).getNormalized();
-  vUp = (MatrRes * vUp).getNormalized();
+  // vRight = GVec(MatrRes[0][0], MatrRes[0][1], MatrRes[0][2]);
+  vUp    = GVec(MatrRes[1][0], MatrRes[1][1], MatrRes[1][2]);
+  vDir   = GVec(MatrRes[2][0], MatrRes[2][1], MatrRes[2][2]);
   return *this;
 }
 
@@ -89,14 +82,14 @@ gbox::Camera & gbox::Camera::rotateByUp(const TypeUse Ang)
 {
   GMatr MatrRes = GMatr::rotateY(Ang) * buildCamMatrix();
 
-  vRight = GVec(MatrRes[0][2], MatrRes[1][2], MatrRes[2][2]).getNormalized();
-  vDir = GVec(MatrRes[0][0], MatrRes[1][0], MatrRes[2][0]).getNormalized();
-  vUp = GVec(MatrRes[0][1], MatrRes[1][1], MatrRes[2][1]).getNormalized();
+  vRight = GVec(MatrRes[0][0], MatrRes[0][1], MatrRes[0][2]);
+  // vUp    = GVec(MatrRes[1][0], MatrRes[1][1], MatrRes[1][2]);
+  vDir   = GVec(MatrRes[2][0], MatrRes[2][1], MatrRes[2][2]);
   return *this;
 }
 
 gbox::GMatr gbox::Camera::buildCamMatrix()
 {
-  return gbox::GMatr(vDir, vUp, vRight);
+  return gbox::GMatr(vRight, vUp, vDir);
   // return gbox::GMatr(vRight, vUp, vDir);
 }

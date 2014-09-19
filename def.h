@@ -1,6 +1,7 @@
 /* Gravity newton box project.
- * Authors: tis-p30, kbsx32;
- * File purpose: Main definitions file.
+ * File purpose: Gbox definitions file.
+ * Authors: Tikhonenko Iliya (tis-p30) <iliya.t@mail.ru>,
+ *          Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #pragma once
@@ -10,6 +11,7 @@
 typedef double TypeUse;
 
 #include "math/mth.h"
+#include "math/mthqstr.h"
 
 // main namespace
 namespace gbox

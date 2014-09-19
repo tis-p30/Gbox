@@ -1,10 +1,12 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: General math header.
+ * File purpose: Math definitions header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #ifndef MTHDEF_H
 #define MTHDEF_H
+
+#include <cmath>
 
 // Redifinition main types
 typedef float FLT;

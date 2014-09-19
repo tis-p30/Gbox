@@ -1,6 +1,7 @@
 /* Gravity newton box project.
- * Authors: tis-p30, kbsx32;
- * File purpose: Scene controller unit file header.
+ * File purpose: Units control.
+ *               Scene controller unit file header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #ifndef SCCONTROL_H

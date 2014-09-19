@@ -1,7 +1,7 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Simple units:
+ * File purpose: Units Simple.
  *               Sphere header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #pragma once
@@ -29,4 +29,5 @@ namespace gbox
     };
   }
 }
+
 #endif // SPHERE_H
