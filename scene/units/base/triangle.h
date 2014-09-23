@@ -5,8 +5,8 @@
  */
 
 #pragma once
-#ifndef TRIANGLE_H
-#define TRIANGLE_H
+#ifndef GBOX_TRIANGLE_H
+#define GBOX_TRIANGLE_H
 
 #include "../../scene.h"
 
@@ -30,4 +30,4 @@ namespace gbox
   }
 }
 
-#endif // TRIANGLE_H
+#endif // GBOX_TRIANGLE_H

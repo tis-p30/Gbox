@@ -3,8 +3,8 @@
  * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
-#ifndef MTHQSTR_H
-#define MTHQSTR_H
+#ifndef GBOX_MTHQSTR_H
+#define GBOX_MTHQSTR_H
 
 #include <QString>
 #include "mth.h"
@@ -20,4 +20,4 @@ namespace mth
   QString operator+(const QString &QStr, const mth::Vec3 &SrcVec);
 }
 
-#endif // MTHQSTR_H
+#endif // GBOX_MTHQSTR_H

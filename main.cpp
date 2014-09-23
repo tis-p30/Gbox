@@ -6,9 +6,7 @@
 
 #include <QApplication>
 
-#include "scene/scene.h"
-#include "scene/units/units.h"
-
+#include "gbox.h"
 
 // Redefinition types and main variables to simple use
 typedef gbox::Prim::Mtl Mtl;
@@ -28,8 +26,10 @@ int main(int argc, char *argv[])
   DefMtl = Mtl(gbox::GVec(0.2, 0.3, 0.5));
   for (int i = 0; i < 20; i++)
   {
-    DefMtl = Mtl(gbox::GVec((DBL)rand() / RAND_MAX, (DBL)rand() / RAND_MAX, (DBL)rand() / RAND_MAX));
-    Scn << new gbox::units::Sphere(gbox::GVec(rand() % 30 - 15, rand() % 30 - 15, rand() % 30 - 15), 1);
+    DefMtl = Mtl(gbox::GVec(mth::random(0.0, 1.0), mth::random(0.0, 1.0), mth::random(0.0, 1.0)));
+    // DefMtl = Mtl(gbox::GVec((DBL)rand() / RAND_MAX, (DBL)rand() / RAND_MAX, (DBL)rand() / RAND_MAX));
+    Scn << new gbox::units::Sphere(gbox::GVec(mth::random(-15.0, 15.0), mth::random(-15.0, 15.0), mth::random(-15.0, 15.0)),
+                                   mth::random(1, 3));
   }
 
   DefMtl = Mtl(gbox::GVec(0.2, 0.3, 0.5));

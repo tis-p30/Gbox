@@ -5,8 +5,8 @@
  */
 
 #pragma once
-#ifndef CAMERA_H
-#define CAMERA_H
+#ifndef GBOX_CAMERA_H
+#define GBOX_CAMERA_H
 
 #include "../../def.h"
 
@@ -49,4 +49,4 @@ namespace gbox
   }; // end of 'Camera' class
 }
 
-#endif // CAMERA_H
+#endif // GBOX_CAMERA_H

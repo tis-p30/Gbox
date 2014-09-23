@@ -5,8 +5,8 @@
  */
 
 #pragma once
-#ifndef SPHERE_H
-#define SPHERE_H
+#ifndef GBOX_SPHERE_H
+#define GBOX_SPHERE_H
 
 #include "../../scene.h"
 
@@ -30,4 +30,4 @@ namespace gbox
   }
 }
 
-#endif // SPHERE_H
+#endif // GBOX_SPHERE_H

@@ -5,8 +5,8 @@
  */
 
 #pragma once
-#ifndef MATR_H
-#define MATR_H
+#ifndef GBOX_MATR_H
+#define GBOX_MATR_H
 
 #include "mthdef.h"
 #include "vec.h"
@@ -62,4 +62,4 @@ namespace mth
   }; // End of 'matr4x4' class
 } // End of 'mth' namespace
 
-#endif // MATR_H
+#endif // GBOX_MATR_H

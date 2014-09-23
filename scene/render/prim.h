@@ -5,8 +5,8 @@
  */
 
 #pragma once
-#ifndef PRIM_H
-#define PRIM_H
+#ifndef GBOX_PRIM_H
+#define GBOX_PRIM_H
 
 #include <vector>
 
@@ -64,4 +64,4 @@ namespace gbox
   };
 }
 
-#endif // PRIM_H
+#endif // GBOX_PRIM_H

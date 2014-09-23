@@ -4,10 +4,12 @@
  * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
-#ifndef SCCONTROL_H
-#define SCCONTROL_H
+#ifndef GBOX_SCCONTROL_H
+#define GBOX_SCCONTROL_H
 
 #include "../../scene.h"
+
+#include "../complex/planet.h"
 
 namespace gbox
 {
@@ -32,4 +34,4 @@ namespace gbox
   } // End of 'units' namespace
 } // End of 'gbox' namespace
 
-#endif // SCCONTROL_H
+#endif // GBOX_SCCONTROL_H

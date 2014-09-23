@@ -5,8 +5,8 @@
  */
 
 #pragma once
-#ifndef VEC_H
-#define VEC_H
+#ifndef GBOX_VEC_H
+#define GBOX_VEC_H
 
 #include "mthdef.h"
 
@@ -21,7 +21,7 @@ namespace mth
     // Default constructor by one number
     Vec3(TypeUse NewCoord = 0);
     // constructor by 3-coords
-    Vec3(TypeUse NewX, TypeUse NewY, TypeUse NewZ);
+    Vec3(TypeUse NewX, TypeUse NewY, TypeUse NewZ = 0);
 
     // Copying constructor
     Vec3(const Vec3 &SrcVec);
@@ -68,4 +68,4 @@ namespace mth
   TypeUse length(const Vec3 &Pnt0, const Vec3 &Pnt1);
 } // End of 'mth' namespace
 
-#endif // VEC_H
+#endif // GBOX_VEC_H

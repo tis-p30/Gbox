@@ -5,8 +5,8 @@
  */
 
 #pragma once
-#ifndef UNITS_H
-#define UNITS_H
+#ifndef GBOX_UNITS_H
+#define GBOX_UNITS_H
 
 // scene inlcuding
 #include "../scene.h"
@@ -20,4 +20,4 @@
 // control objects
 #include "control/sccontrol.h"
 
-#endif // UNITS_H
+#endif // GBOX_UNITS_H

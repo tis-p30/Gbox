@@ -25,7 +25,8 @@ SOURCES += main.cpp \
     math/matr.cpp \
     math/numint.cpp \
     math/mthqstr.cpp \
-    math/mth.cpp
+    math/mth.cpp \
+    scene/units/complex/planet.cpp
 
 HEADERS  += \
     scene/render/render.h \
@@ -43,7 +44,9 @@ HEADERS  += \
     math/mthdef.h \
     math/matr.h \
     math/vec.h \
-    math/mthqstr.h
+    math/mthqstr.h \
+    scene/units/complex/planet.h \
+    gbox.h
  LIBS += -lGLU
 
 QMAKE_CXXFLAGS += -Wno-unused-parameter

@@ -3,16 +3,16 @@
  * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
-#ifndef MTHDEF_H
-#define MTHDEF_H
+#ifndef GBOX_MTHDEF_H
+#define GBOX_MTHDEF_H
 
 #include <cmath>
 
 // Redifinition main types
 typedef float FLT;
 typedef double DBL;
-
+typedef unsigned char DWORD;
 // Setting default type
 typedef double TypeUse;
 
-#endif // MTHDEF_H
+#endif // GBOX_MTHDEF_H

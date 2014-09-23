@@ -13,6 +13,7 @@ gbox::Scene::Scene(QWidget *QWidgParent) :
   timer->setInterval(30);
   connect(timer, SIGNAL(timeout()), this, SLOT(update()));
   timer->start();
+  this->setMouseTracking(true);
 }
 
 // default scene destructor

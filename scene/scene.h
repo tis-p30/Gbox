@@ -4,8 +4,8 @@
  */
 
 #pragma once
-#ifndef SCENE_H
-#define SCENE_H
+#ifndef GBOX_SCENE_H
+#define GBOX_SCENE_H
 
 #include <vector>
 #include <QTimer>
@@ -66,4 +66,4 @@ namespace gbox
   }; // end of 'scene' class
 } // end of 'gbox' namespace
 
-#endif // SCENE_H
+#endif // GBOX_SCENE_H

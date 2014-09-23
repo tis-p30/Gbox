@@ -6,9 +6,10 @@
 
 #pragma once
 
-#ifndef MTH_H
-#define MTH_H
+#ifndef GBOX_MTH_H
+#define GBOX_MTH_H
 
+#include <cstdlib>
 #include <cmath>
 #include <QString>
 
@@ -23,6 +24,13 @@ namespace mth
 {
   // math pi constant
   const TypeUse pi = 3.1415;
+
+  // Getting random number function
+  template<typename Type>
+    Type random(Type NumLeft, Type NumRight)
+    {
+      return (Type)rand() / RAND_MAX * (NumRight - NumLeft) + NumLeft;
+    }
 }
 
-#endif // MTH_H
+#endif // GBOX_MTH_H

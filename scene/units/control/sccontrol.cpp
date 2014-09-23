@@ -106,6 +106,10 @@ void gbox::units::UnitScControl::render(gbox::Scene &SrcSc)
   QStr = QString("LookAtPos = ") + V;
   SrcSc.renderTextDef(10, 40, QStr);
 
+  V = SrcSc.Input::MousePos;
+  QStr = QString("MousePos = ") + V;
+  SrcSc.renderTextDef(10, 55, QStr);
+
   glEnable(GL_DEPTH_TEST);
   // glRotatef(90, 0, 0)
 }
