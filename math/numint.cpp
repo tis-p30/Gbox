@@ -5,7 +5,6 @@
  * Numerical integration functions implementation
  */
 
-#include "mth.h"
 #include "numint.h"
 
 template<class T>

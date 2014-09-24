@@ -1,11 +1,12 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Render primitive class header.
+ * File purpose: Render.
+ *               Render primitive class header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #pragma once
-#ifndef PRIM_H
-#define PRIM_H
+#ifndef GBOX_PRIM_H
+#define GBOX_PRIM_H
 
 #include <vector>
 
@@ -62,4 +63,5 @@ namespace gbox
     void render();
   };
 }
-#endif // PRIM_H
+
+#endif // GBOX_PRIM_H

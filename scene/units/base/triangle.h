@@ -1,12 +1,12 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Simple units:
+ * File purpose: Units Simple.
  *               Triangle header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #pragma once
-#ifndef TRIANGLE_H
-#define TRIANGLE_H
+#ifndef GBOX_TRIANGLE_H
+#define GBOX_TRIANGLE_H
 
 #include "../../scene.h"
 
@@ -17,7 +17,6 @@ namespace gbox
     class Triangle : public Scene::UnitDef
     {
     private:
-      // GVec Pnt0, Pnt1, Pnt2;
       Prim unitPrim;
     public:
       // Default triangle constructor
@@ -30,4 +29,5 @@ namespace gbox
     };
   }
 }
-#endif // TRIANGLE_H
+
+#endif // GBOX_TRIANGLE_H

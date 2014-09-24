@@ -1,11 +1,11 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
  * File purpose: Render header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #pragma once
-#ifndef RENDER_H
-#define RENDER_H
+#ifndef GBOX_RENDER_H
+#define GBOX_RENDER_H
 
 #include <QGLWidget>
 #include <QGLFunctions>
@@ -34,6 +34,9 @@ namespace gbox
 
     // rendering function for higher level
     virtual void render() = 0;
+    // rendering default text function
+    void renderTextDef(const DBL PosX, const DBL PosY, const QString QStr);
   }; // end of 'render' class
 } // end of 'gbox' namespace
-#endif // RENDER_H
+
+#endif // GBOX_RENDER_H

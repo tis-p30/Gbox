@@ -1,11 +1,12 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Render camera class header.
+ * File purpose: Render.
+ *               Camera class header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #pragma once
-#ifndef CAMERA_H
-#define CAMERA_H
+#ifndef GBOX_CAMERA_H
+#define GBOX_CAMERA_H
 
 #include "../../def.h"
 
@@ -45,9 +46,7 @@ namespace gbox
 
     // Building camera matrix function
     GMatr buildCamMatrix();
-    // Building camera inverse matrix function
-    GMatr buildCamMatrixInv();
   }; // end of 'Camera' class
 }
 
-#endif // CAMERA_H
+#endif // GBOX_CAMERA_H

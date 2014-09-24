@@ -1,13 +1,10 @@
 /* Gravity newton box project.
- * Authors: tis-p30, kbsx32;
- * File purpose: Math vectors functions implementation file.
+ * File purpose: Math.
+ *               Vectors functions implementation file.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
-#include "mth.h"
-
-/*
- *  Matrix functions implementation
- */
+#include "vec.h"
 
 // vector default constructor
 mth::Vec3::Vec3(TypeUse NewX, TypeUse NewY, TypeUse NewZ) :
@@ -75,9 +72,9 @@ mth::Vec3 mth::Vec3::operator*(const TypeUse &Num) const
 // Vector mult of Vecs function
 mth::Vec3 mth::Vec3::operator%(const mth::Vec3 &Vec1) const
 {
-  return Vec3(Y * Vec1[2] - Y * Vec1[1],
-             Z * Vec1[0] - X * Vec1[2],
-             X * Vec1[1] - Y * Vec1[0]);
+  return Vec3(Y * Vec1[2] - Z * Vec1[1],
+              Z * Vec1[0] - X * Vec1[2],
+              X * Vec1[1] - Y * Vec1[0]);
 }
 
 // Getting vector length
@@ -144,4 +141,12 @@ mth::Vec3 mth::Vec3::rotateByZ(const TypeUse AngX) const
   return Vec3(X * cosa - Y * sina,
               X * sina + Y * cosa,
               Z);
+}
+
+// Count length between two points
+TypeUse mth::length(const mth::Vec3 &Pnt0, const mth::Vec3 &Pnt1)
+{
+  return sqrt(pow(Pnt1[0] - Pnt0[0], 2) +
+              pow(Pnt1[1] - Pnt0[1], 2) +
+              pow(Pnt1[2] - Pnt0[2], 2));
 }

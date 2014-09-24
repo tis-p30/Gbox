@@ -1,7 +1,7 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Simple units:
- *               Triangle implementation.
+ * File purpose: Units Simple.
+ *               Sphere functions implementation.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #include <vector>
@@ -51,4 +51,3 @@ void gbox::units::Sphere::render(Scene &SrcSc)
 {
   unitPrim.render();
 }
-

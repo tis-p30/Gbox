@@ -1,5 +1,5 @@
-#ifndef NUMINT_H
-#define NUMINT_H
+#ifndef GBOX_NUMINT_H
+#define GBOX_NUMINT_H
 /* Newton gravity box project
  *
  * Authors: Tikhonenko Iliya <iliya.t@mail.ru>
@@ -7,8 +7,7 @@
  * Numerical integration functions implementation
  */
 
-
-#include "mth.h"
+#include "mthdef.h"
 
 namespace mth
 {
@@ -30,4 +29,4 @@ accel(r) = -1/r^2
 euler<Vec,Point>(accel, accel_cur, vel0, 0.001);
 */
 }
-#endif // NUMINT_H
+#endif // GBOX_NUMINT_H

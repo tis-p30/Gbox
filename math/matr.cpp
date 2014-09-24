@@ -1,11 +1,12 @@
 /* Gravity newton box project.
- * Authors: tis-p30, kbsx32;
- * File purpose: Math matrix functions implementation file.
+ * File purpose: Math.
+ *               Matrix implementation file.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #include <cstring>
 
-#include "mth.h"
+#include "matr.h"
 
 // Default constructor
 mth::Matr4x4::Matr4x4(
@@ -37,6 +38,7 @@ mth::Matr4x4::Matr4x4(const mth::Vec3 &V0, const mth::Vec3 &V1, const mth::Vec3 
       Ar[i][j] = (*VAr[i])[j];
 
   Ar[0][3] = Ar[1][3] = Ar[2][3] = 0;
+  Ar[3][0] = Ar[3][1] = Ar[3][2] = 0;
   Ar[3][3] = 1;
 }
 
@@ -162,4 +164,3 @@ mth::Matr4x4 mth::Matr4x4::transpose() const
       MatrRes[y][x] = Ar[x][y];
   return MatrRes;
 }
-

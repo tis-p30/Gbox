@@ -1,11 +1,11 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Render header.
+ * File purpose: Scene header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #pragma once
-#ifndef SCENE_H
-#define SCENE_H
+#ifndef GBOX_SCENE_H
+#define GBOX_SCENE_H
 
 #include <vector>
 #include <QTimer>
@@ -24,6 +24,7 @@ namespace gbox
     Q_OBJECT
   private:
     QTimer *timer; // Main updater timer
+    bool IsPause;  // Pause flag
     // static
   public:
     // Default unit
@@ -46,6 +47,11 @@ namespace gbox
     // default destructor
     ~Scene();
 
+    // Getting Scene pause flag
+    bool GetPauseFlag();
+    // Inversing scene pause flag function
+    bool PauseReset();
+
   public slots:
     // Update scene function
     void update();
@@ -60,4 +66,4 @@ namespace gbox
   }; // end of 'scene' class
 } // end of 'gbox' namespace
 
-#endif // SCENE_H
+#endif // GBOX_SCENE_H

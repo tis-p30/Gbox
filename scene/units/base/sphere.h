@@ -1,12 +1,12 @@
 /* Gravity newton box project.
- * Authors: kbsx32;
- * File purpose: Simple units:
+ * File purpose: Units Simple.
  *               Sphere header.
+ * Authors: Kuznetsov Roman (kbsx32) <blacksmithx32@gmail.com>
  */
 
 #pragma once
-#ifndef SPHERE_H
-#define SPHERE_H
+#ifndef GBOX_SPHERE_H
+#define GBOX_SPHERE_H
 
 #include "../../scene.h"
 
@@ -29,4 +29,5 @@ namespace gbox
     };
   }
 }
-#endif // SPHERE_H
+
+#endif // GBOX_SPHERE_H
